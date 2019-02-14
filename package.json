@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "totest": "node src/test.js",
-    "index": "node src/index.js"
+    "index": "node src/index.js",
+    "updateList": "node src/updateBookList.js",
+    "updateDes": "node src/updateBookDes.js"
   },
   "author": "",
   "license": "ISC",
