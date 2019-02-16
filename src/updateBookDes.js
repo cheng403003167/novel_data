@@ -1,6 +1,6 @@
 // 更新书的详细信息
-const crawlPage = require('./getData');
-const insertDatejs = require('./updatamysql');
+const crawlPage = require('./bin/getData');
+const insertDatejs = require('./bin/updatamysql');
 
 async function updatabookDes(start,blank){
   // 查询数据

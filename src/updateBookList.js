@@ -1,7 +1,7 @@
 // 更新书的排列信息
-const crawlPage = require('./getData');
-const upDate = require('./updata');
-const insertDatejs = require('./updatamysql');
+const crawlPage = require('./bin/getData');
+const upDate = require('./bin/updata');
+const insertDatejs = require('./bin/updatamysql');
 
 async function updataF(currentPage,countPage){
   let onePage = await new crawlPage({currentPage:currentPage,countPage:countPage});
@@ -29,6 +29,6 @@ async function updataF(currentPage,countPage){
   }
 }
 
-for(t = 1;t < 3;t++){
+for(t = 1;t < 4;t++){
   updataF(t,t)
 };
