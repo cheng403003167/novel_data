@@ -1,8 +1,7 @@
 // 插入新书
-const crawlPage = require('./getData');
-const upDate = require('./updata');
-const insertDatejs = require('./updatamysql');
-// const textdata = require('./test.js')
+const crawlPage = require('./bin/getData');
+const upDate = require('./bin/updata');
+const insertDatejs = require('./bin/updatamysql');
 
 async function getDataBlank(currentPage,countPage){
   // 获取数据
