@@ -14,13 +14,13 @@ class crawlPage{
     this.url = 'https://www.qidian.com/all?page='+this.currentPage;
   }
   async defineBrowser(){
-    this.browser = await this.puppeteer.launch({headless:true});
+    this.browser = await this.puppeteer.launch({headless:false});
   }
   // 插入jq代码
   async defineJq(page,url='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'){
     page.on('load',async()=>{
       await page.addScriptTag({
-        url:url
+        path:'./src/bin/jquery.min.js'
       })
     })
   }
@@ -36,7 +36,6 @@ class crawlPage{
     if(this.listData.length>0){
       await this.getDetailData(0,this.listData.length);
     }
-    await this.browser.close();
   }
   // 获取详情数据
   async jqGetDes(){
@@ -172,6 +171,10 @@ class crawlPage{
     }else{
       await this.getDetailDataF(index,length);
     }
+  }
+  // 关闭浏览器
+  async closeBrowser(){
+    await this.browser.close().catch((err)=>console.log(err))
   }
 }
 

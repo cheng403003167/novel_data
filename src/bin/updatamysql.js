@@ -4,7 +4,7 @@ const booklist = './src/bin/booklist.txt';
 var configInfo = {
   host: 'localhost',
   user: 'root',
-  password: 'root',
+  password: '3203550cheng',
   database: 'xiaoshuo_new'
 }
 
@@ -14,7 +14,7 @@ class insertDate {
     this.len = this.data.length;
     this.i = 0;
     this.conn = mysql.createConnection(configInfo);
-    this.conn.on('error',err=>console.log(err.code));
+    this.conn.on('error',err=>console.log('2',err.code));
     if(openFile == 1){
       this.fd = fs.openSync(booklist,'a+');
     }

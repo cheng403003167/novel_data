@@ -7,6 +7,7 @@ async function updataF(currentPage,countPage){
   let onePage = await new crawlPage({currentPage:currentPage,countPage:countPage});
   await onePage.defineBrowser();
   await onePage.jqGetListDate(1);
+  await onePage.closeBrowser();
   // 上传图片
   if(onePage.listData.length>0){
     for(let i = 0;i< onePage.listData.length;i++){
@@ -28,7 +29,9 @@ async function updataF(currentPage,countPage){
     await insertData.updateData();
   }
 }
-
-for(t = 1;t < 4;t++){
-  updataF(t,t)
-};
+(async()=>{
+  for(t = 1;t < 2;t++){
+    await updataF(t,t)
+  };
+})()
+  
