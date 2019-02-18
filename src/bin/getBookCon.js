@@ -11,7 +11,7 @@ class crawlCon {
     this.url = 'https://www.biquge5200.cc/modules/article/search.php?searchkey='+this.bookName;
   }
   async defineBrowser(){
-    this.browser = await this.puppeteer.launch({headless:false});
+    this.browser = await this.puppeteer.launch({headless:true});
   }
   // 搜索书籍信息
   async getsouDate(){

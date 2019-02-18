@@ -14,7 +14,7 @@ class crawlPage{
     this.url = 'https://www.qidian.com/all?page='+this.currentPage;
   }
   async defineBrowser(){
-    this.browser = await this.puppeteer.launch({headless:false});
+    this.browser = await this.puppeteer.launch({headless:true});
   }
   // 插入jq代码
   async defineJq(page,url='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js'){
