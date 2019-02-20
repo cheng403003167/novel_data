@@ -28,7 +28,8 @@ class upDateCon {
         await that.chapterPage.defineBrowser();
         that.startN = JSON.parse(JSON.stringify(row)).count;
         await that.chapterPage.getsouDate();
-        await that.insertDate.insertChapter(that.chapterPage.chapterData,false);
+        await that.insertDate.insertChapter(that.chapterPage.chapterData,true);
+        console.log(bookTrueName)
         console.log('第'+that.startN+'到'+'第'+(that.startN+10)+'插入完成')
         while(that.chapterPage.bookEnd !=1 ){
           await that.criclCon();
@@ -56,5 +57,5 @@ class upDateCon {
 }
 (async ()=>{
   const ci = new upDateCon();
-  await ci.main(4);
+  await ci.main(1);
 })()
