@@ -37,13 +37,18 @@ class crawlCon {
     })
   }
   async souBook(){
-    let dataLine = await this.conPage.evaluate(()=>{
-      if($(".grid tr").eq(1)){
-        return $(".grid tr").eq(1).find('.odd').eq(0).find('a').attr('href');
+    let dataLine = await this.conPage.evaluate(async (bookName)=>{
+      let bookLength = $(".grid tr").length;
+      if($(".grid tr").eq(1).length == 1){
+        for(let i = 1;i<bookLength;i++){
+          if($(".grid tr").eq(i).find('.odd').eq(0).text() == bookName){
+            return $(".grid tr").eq(i).find('.odd').eq(0).find('a').attr('href');
+          }
+        }
       }else{
         return false;
       }
-    });
+    },this.bookName);
     await this.gotoCon(dataLine,this.startChapter);
   }
   // 去书籍内容页
