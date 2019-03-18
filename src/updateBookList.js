@@ -20,13 +20,13 @@ async function updataF(currentPage,countPage){
         })
     };
     // 插入数据库
-    let insertData = await new insertDatejs({dataArr:onePage.listData,openFile:0});
-    await insertData.createConnInsert();
+    let insertData1 = await new insertDatejs({dataArr:onePage.listData,openFile:1});
+    await insertData1.createConnInsert();
   }
   if(onePage.listDataHave.length > 0){
     // 更新数据库
-    let insertData = await new insertDatejs({dataArr:onePage.listDataHave,openFile:0});
-    await insertData.updateData();
+    let insertData2 = await new insertDatejs({dataArr:onePage.listDataHave,openFile:0});
+    await insertData2.updateData();
   }
 }
 (async()=>{

@@ -4,7 +4,7 @@ const booklist = './src/bin/booklist.txt';
 var configInfo = {
   host: 'localhost',
   user: 'root',
-  password: '3203550cheng',
+  password: 'root',
   database: 'xiaoshuo_new'
 }
 
@@ -14,7 +14,7 @@ class insertDate {
     this.len = this.data.length;
     this.i = 0;
     this.conn = mysql.createConnection(configInfo);
-    this.conn.on('error',err=>console.log('2',err.code));
+    this.conn.on('error',err=>console.log('2',err));
     if(openFile == 1){
       this.fd = fs.openSync(booklist,'a+');
     }
@@ -87,7 +87,7 @@ class insertDate {
     }
   }
   async getBookName(num){
-    return await this.conn.query('SELECT name FROM library WHERE currentList = ?',num);
+    return await this.conn.query('SELECT name FROM library WHERE bid = ?',[num]);
   }
   async checkBookChapter(name){
     return await this.conn.query('SELECT COUNT(*) AS count FROM bookCon WHERE name = ?',[name]);
